@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app2/utilities/constants.dart';
+import 'package:flutter_app2/screens/login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -78,6 +79,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
       ],
     );
+  }
+
+  void _navigateToNextScreen(BuildContext context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => LoginScreen()));
   }
 
   Widget _buildConfirmPasswordTF() {
@@ -185,51 +190,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-/*
-  Widget _buildForgotPasswordBtn() {
-    return Container(
-      alignment: Alignment.centerRight,
-      child: FlatButton(
-        onPressed: () => print('Forgot Password Button Pressed'),
-        padding: EdgeInsets.only(right: 0.0),
-        child: Text(
-          'Forgot Password?',
-          style: kLabelStyle,
-        ),
-      ),
-    );
-  }
-
- */
-
-  /*
-  Widget _buildRememberMeCheckbox() {
-    return Container(
-      height: 20.0,
-      child: Row(
-        children: <Widget>[
-          Theme(
-            data: ThemeData(unselectedWidgetColor: Color(0xFF393939)),
-            child: Checkbox(
-              value: _rememberMe,
-              checkColor: Colors.green,
-              activeColor: Colors.white,
-              onChanged: (value) {
-                setState(() {
-                  _rememberMe = value;
-                });
-              },
-            ),
-          ),
-          Text(
-            'Remember me',
-            style: kLabelStyle,
-          ),
-        ],
-      ),
-    );
-  }
-   */
 
   Widget _buildRegisterBtn() {
     return Container(
@@ -301,33 +261,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
     );
   }
 
-  /*
-  Widget _buildSocialBtnRow() {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 30.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          _buildSocialBtn(
-                () => print('Login with Facebook'),
-            AssetImage(
-              'assets/images/facebook.jpg',
-            ),
-          ),
-          _buildSocialBtn(
-                () => print('Login with Google'),
-            AssetImage(
-              'assets/images/google.jpg',
-            ),
-          ),
-        ],
-      ),
-    );
-  }*/
 
   Widget _buildSignInBtn() {
     return GestureDetector(
-      onTap: () => print('Sign in Button Pressed'),
+      onTap: () => _navigateToNextScreen(context),//print('Sign in Button Pressed'),
       child: RichText(
         text: TextSpan(
           children: [
