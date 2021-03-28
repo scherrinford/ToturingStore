@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app2/utilities/constants.dart';
-import 'package:flutter_app2/screens/sign_up_screen.dart';
 
-class LoginScreen extends StatefulWidget {
+class SignUpScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _SignUpScreenState createState() => _SignUpScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _SignUpScreenState extends State<SignUpScreen> {
   bool _rememberMe = false;
 
   Widget _buildEmailTF() {
@@ -81,6 +80,112 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  Widget _buildConfirmPasswordTF() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'Confirm Password',
+          style: kLabelStyle,
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            obscureText: true,
+            style: TextStyle(
+              color: Color(0xFF393939),
+              fontFamily: 'OpenSans',
+            ),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
+                Icons.lock,
+                color: Color(0xFF393939),
+              ),
+              hintText: 'Confirm Password',
+              hintStyle: kHintTextStyle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildNameTF() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'Name',
+          style: kLabelStyle,
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            obscureText: true,
+            style: TextStyle(
+              color: Color(0xFF393939),
+              fontFamily: 'OpenSans',
+            ),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
+                Icons.person,
+                color: Color(0xFF393939),
+              ),
+              hintText: 'Enter your Name',
+              hintStyle: kHintTextStyle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildPhoneTF() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          'Phone',
+          style: kLabelStyle,
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          alignment: Alignment.centerLeft,
+          decoration: kBoxDecorationStyle,
+          height: 60.0,
+          child: TextField(
+            obscureText: true,
+            style: TextStyle(
+              color: Color(0xFF393939),
+              fontFamily: 'OpenSans',
+            ),
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              contentPadding: EdgeInsets.only(top: 14.0),
+              prefixIcon: Icon(
+                Icons.phone,
+                color: Color(0xFF393939),
+              ),
+              hintText: 'Enter your Phone Number',
+              hintStyle: kHintTextStyle,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+/*
   Widget _buildForgotPasswordBtn() {
     return Container(
       alignment: Alignment.centerRight,
@@ -95,6 +200,9 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+ */
+
+  /*
   Widget _buildRememberMeCheckbox() {
     return Container(
       height: 20.0,
@@ -121,21 +229,22 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
+   */
 
-  Widget _buildLoginBtn() {
+  Widget _buildRegisterBtn() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
       child: RaisedButton(
         elevation: 5.0,
-        onPressed: () => print('Login Button Pressed'),
+        onPressed: () => print('Register Button Pressed'),
         padding: EdgeInsets.all(15.0),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30.0),
         ),
         color: Color(0xFFFDFDFD),
         child: Text(
-          'LOGIN',
+          'REGISTER',
           style: TextStyle(
             color: Color(0xFFECB6B6),
             letterSpacing: 1.5,
@@ -148,9 +257,6 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void _navigateToNextScreen(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignUpScreen()));
-  }
 
   Widget _buildSignInWithText() {
     return Column(
@@ -195,6 +301,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  /*
   Widget _buildSocialBtnRow() {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 30.0),
@@ -216,16 +323,16 @@ class _LoginScreenState extends State<LoginScreen> {
         ],
       ),
     );
-  }
+  }*/
 
-  Widget _buildSignupBtn() {
+  Widget _buildSignInBtn() {
     return GestureDetector(
-      onTap: () => _navigateToNextScreen(context),//print('Sign Up Button Pressed'),
+      onTap: () => print('Sign in Button Pressed'),
       child: RichText(
         text: TextSpan(
           children: [
             TextSpan(
-              text: 'Don\'t have an Account? ',
+              text: 'Have an Account? ',
               style: TextStyle(
                 color: Color(0xFF393939),
                 fontSize: 18.0,
@@ -233,7 +340,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
             TextSpan(
-              text: 'Sign Up',
+              text: 'Sign in',
               style: TextStyle(
                 color: Color(0xFF393939),
                 fontSize: 18.0,
@@ -258,8 +365,8 @@ class _LoginScreenState extends State<LoginScreen> {
               Container(
                 height: double.infinity,
                 width: double.infinity,
-               // decoration: BoxDecoration(
-                  /*gradient: LinearGradient(
+                // decoration: BoxDecoration(
+                /*gradient: LinearGradient(
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
@@ -292,7 +399,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        'Sign In',
+                        'Sign Up',
                         style: TextStyle(
                           color: Color(0xFF393939),
                           fontFamily: 'OpenSans',
@@ -301,17 +408,22 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                       SizedBox(height: 30.0),
+                      _buildNameTF(),
+                      SizedBox(height: 30.0),
+                      _buildPhoneTF(),
+                      SizedBox(height: 30.0),
                       _buildEmailTF(),
                       SizedBox(
                         height: 30.0,
                       ),
                       _buildPasswordTF(),
-                      _buildForgotPasswordBtn(),
-                      _buildRememberMeCheckbox(),
-                      _buildLoginBtn(),
-                      _buildSignInWithText(),
-                      _buildSocialBtnRow(),
-                      _buildSignupBtn(),
+                      SizedBox(
+                        height: 30.0,
+                      ),
+                      _buildConfirmPasswordTF(),
+                      SizedBox(height: 20.0),
+                      _buildRegisterBtn(),
+                      _buildSignInBtn(),
                     ],
                   ),
                 ),

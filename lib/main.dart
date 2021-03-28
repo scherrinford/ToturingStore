@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_app2/screens/login_screen.dart';
+import 'package:flutter_app2/screens/sign_up_screen.dart';
 
 void main() => runApp(MyApp());
 
