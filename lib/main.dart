@@ -5,6 +5,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app2/screens/login_screen.dart';
 import 'package:flutter_app2/screens/sign_up_screen.dart';
+import 'package:flutter_app2/screens/main_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Login UI',
       debugShowCheckedModeBanner: false,
-      home: LoginScreen(),
+      home: MainScreen(),
     );
   }
 }
